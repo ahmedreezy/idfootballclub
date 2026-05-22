@@ -102,13 +102,18 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import trainingImg from '../assets/training.png.png'
-import img1v1 from '../assets/1v1.png.png'
-import teamPhotoImg from '../assets/teamphoto.png.png'
-import ourkitsImg from '../assets/ourkits.png.jpeg'
-import subImg from '../assets/sub.png.png'
-import winningImg from '../assets/winning.png.png'
-import founderImg from '../assets/founder.png.png'
+import img1582 from '../assets/IMG_1582.JPG'
+import img1592 from '../assets/IMG_1592.JPG'
+import img1604 from '../assets/IMG_1604.JPG'
+import img1613 from '../assets/IMG_1613.JPG'
+import img1628 from '../assets/IMG_1628.JPG'
+import img1644 from '../assets/IMG_1644.JPG'
+import img1658 from '../assets/IMG_1658.JPG'
+import img1707 from '../assets/IMG_1707.JPG'
+import img1749 from '../assets/IMG_1749.JPG'
+import img1839 from '../assets/IMG_1839.JPG'
+import img1876 from '../assets/IMG_1876.jpg'
+import img1944 from '../assets/IMG_1944.jpg'
 
 interface Photo {
   src: string
@@ -125,18 +130,18 @@ const lightboxOpen = ref(false)
 const lightboxIndex = ref(0)
 
 const photos: Photo[] = [
-  { src: trainingImg, alt: 'ID All Stars training', caption: 'High-intensity training session', category: 'Training' },
-  { src: img1v1, alt: '1v1 drill', caption: 'ID Method — 1v1 mastery', category: 'Training' },
-  { src: teamPhotoImg, alt: 'Team photo', caption: 'ID All Stars squad', category: 'Academy Life', wide: true },
-  { src: ourkitsImg, alt: 'Our kits', caption: 'Proud to wear the badge', category: 'Academy Life' },
-  { src: subImg, alt: 'Substitution moment', caption: 'Every player gets their moment', category: 'Match Day' },
-  { src: winningImg, alt: 'Winning', caption: 'Champions — on and off the pitch', category: 'Match Day' },
-  { src: founderImg, alt: 'Founder coaching', caption: 'The Kingmaker at work', category: 'Academy Life' },
-  { src: trainingImg, alt: 'Skills drill', caption: 'Thousands of touches per session', category: 'Training' },
-  { src: img1v1, alt: 'One-on-one', caption: 'Technical excellence', category: 'Training' },
-  { src: teamPhotoImg, alt: 'Team huddle', caption: 'Building team spirit', category: 'Academy Life' },
-  { src: winningImg, alt: 'Match celebration', caption: 'Celebrating success', category: 'Match Day' },
-  { src: ourkitsImg, alt: 'Match day kit', caption: 'Match day ready', category: 'Match Day' },
+  { src: img1582, alt: 'Training drill session', caption: 'High-intensity ball mastery', category: 'Training' },
+  { src: img1592, alt: 'Player control work', caption: 'First touch under pressure', category: 'Training' },
+  { src: img1604, alt: 'Academy group moment', caption: 'ID All Stars together', category: 'Academy Life', wide: true },
+  { src: img1613, alt: 'Team preparation', caption: 'Ready for the next session', category: 'Academy Life' },
+  { src: img1628, alt: 'Match action', caption: 'Competing with confidence', category: 'Match Day' },
+  { src: img1644, alt: 'Training challenge', caption: 'Sharp movement and focus', category: 'Training' },
+  { src: img1658, alt: 'Academy candid', caption: 'Learning every day', category: 'Academy Life' },
+  { src: img1707, alt: 'Skill execution', caption: 'Technical detail matters', category: 'Training' },
+  { src: img1749, alt: 'Match moment', caption: 'Intensity on match day', category: 'Match Day' },
+  { src: img1839, alt: 'Team formation', caption: 'United with one purpose', category: 'Academy Life' },
+  { src: img1876, alt: 'Celebration scene', caption: 'Celebrating progress', category: 'Match Day' },
+  { src: img1944, alt: 'Academy in action', caption: 'Future stars in motion', category: 'Training' },
 ]
 
 const filteredPhotos = computed(() =>

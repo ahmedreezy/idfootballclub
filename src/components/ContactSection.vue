@@ -221,6 +221,14 @@ async function handleSubmit() {
   const valid = (['name', 'email', 'phone', 'message'] as (keyof ContactForm)[]).map(f => validate(f)).every(Boolean)
   if (!valid) { formError.value = 'Please fix the errors above.'; return }
 
+  const submittedAt = new Date().toLocaleString('en-GB', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+    timeZone: 'Europe/London',
+  })
+  const enquiryId = `ENQ-${Date.now()}`
+  const fullSubject = form.value.subject || 'General Enquiry'
+
   submitting.value = true
   try {
     await emailjs.send(
@@ -231,21 +239,35 @@ async function handleSubmit() {
         from_name: form.value.name,
         from_email: form.value.email,
         phone: form.value.phone || 'Not provided',
-        subject: form.value.subject || 'General Enquiry',
+        subject: fullSubject,
         message: form.value.message,
+        enquiry_id: enquiryId,
+        submitted_at: submittedAt,
+        email_subject: `New Contact Enquiry - ${fullSubject} - ${form.value.name}`,
+        email_html: `
+          <h2 style="margin:0 0 12px;color:#0F1B4C;">New Contact Enquiry</h2>
+          <p style="margin:0 0 14px;"><strong>Enquiry ID:</strong> ${enquiryId}</p>
+          <p style="margin:0 0 6px;"><strong>Name:</strong> ${form.value.name}</p>
+          <p style="margin:0 0 6px;"><strong>Email:</strong> ${form.value.email}</p>
+          <p style="margin:0 0 6px;"><strong>Phone:</strong> ${form.value.phone || 'Not provided'}</p>
+          <p style="margin:0 0 14px;"><strong>Subject:</strong> ${fullSubject}</p>
+          <p style="margin:0 0 6px;"><strong>Message:</strong></p>
+          <div style="background:#F8F8F8;border-left:4px solid #D4AF37;padding:10px 12px;white-space:pre-wrap;">${form.value.message}</div>
+          <p style="margin:14px 0 0;color:#666;"><strong>Submitted:</strong> ${submittedAt}</p>
+        `,
       },
       EMAILJS_CONFIG.PUBLIC_KEY,
     )
     submitted.value = true
   } catch {
-    formError.value = 'Something went wrong. Please email us at info@idfootballclub.outlook'
+    formError.value = 'Something went wrong. Please email us at id.footballstars@gmail.com'
   } finally {
     submitting.value = false
   }
 }
 
 const contactInfo = [
-  { label: 'Email', icon: '✉️', value: 'info@idfootballclub.outlook', href: 'mailto:info@idfootballclub.outlook' },
+  { label: 'Email', icon: '✉️', value: 'id.footballstars@gmail.com', href: 'mailto:id.footballstars@gmail.com' },
   { label: 'Location', icon: '📍', value: 'Manchester, United Kingdom', href: null },
   { label: 'Training Hours', icon: '⏰', value: 'Mon–Sat · Various times by age group', href: null },
 ]
@@ -253,7 +275,7 @@ const contactInfo = [
 const socials = [
   {
     name: 'Instagram',
-    url: '#',
+    url: 'https://www.instagram.com/idallstarsfootballclub?igsh=MWx3azZ4Nm90bG91',
     svgPath: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z',
   },
   {

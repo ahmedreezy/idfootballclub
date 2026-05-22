@@ -76,7 +76,7 @@
 </template>
 
 <script setup lang="ts">
-import heroImg from '../assets/hero.png'
+import heroImg from '../assets/IMG_1839.JPG'
 
 const heroStats = [
   { value: '14+', label: 'Years' },

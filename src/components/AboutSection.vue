@@ -25,7 +25,7 @@
             <p class="font-heading font-bold text-navy text-sm leading-snug italic">
               "If I cannot be a King,<br/>I will become a <strong>Kingmaker.</strong>"
             </p>
-            <p class="font-body text-navy/70 text-xs mt-1">— Mr. Idowu, Founder</p>
+            <p class="font-body text-navy/70 text-xs mt-1">— Mr. ID, Founder</p>
           </div>
         </div>
 
@@ -42,7 +42,7 @@
             </p>
             <p>
               Fourteen years ago, I started my journey not to chase the spotlight, but to build
-              the lights. I chose my middle name, <strong class="text-gold">IDOWU</strong>, as
+              the lights. I chose <strong class="text-gold">ID</strong> as
               the emblem of this journey. In the football world, <strong class="text-gold">ID</strong>
               became my mission: <em>Identification of Stars.</em>
             </p>
@@ -91,7 +91,7 @@
 </template>
 
 <script setup lang="ts">
-import trainingImg from '../assets/training.png.png'
+import trainingImg from '../assets/IMG_1582.JPG'
 
 const pillars = [
   {

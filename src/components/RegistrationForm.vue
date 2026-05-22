@@ -434,6 +434,13 @@ async function handleSubmit() {
     return
   }
 
+  const submittedAt = new Date().toLocaleString('en-GB', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+    timeZone: 'Europe/London',
+  })
+  const registrationId = `REG-${Date.now()}`
+
   submitting.value = true
   try {
     await emailjs.send(
@@ -454,12 +461,36 @@ async function handleSubmit() {
         guardian_contact: form.value.guardianContact || 'N/A',
         referral: form.value.referral || 'Not specified',
         marketing_consent: form.value.marketing ? 'Yes' : 'No',
+        registration_id: registrationId,
+        submitted_at: submittedAt,
+        email_subject: `New Player Registration - ${form.value.firstName} ${form.value.lastName} - Age ${calculatedAge.value ?? 'N/A'}`,
+        email_html: `
+          <h2 style="margin:0 0 12px;color:#0F1B4C;">New Player Registration</h2>
+          <p style="margin:0 0 14px;"><strong>Registration ID:</strong> ${registrationId}</p>
+          <h3 style="margin:12px 0 6px;color:#0F1B4C;">Player Details</h3>
+          <p style="margin:0 0 6px;"><strong>Name:</strong> ${form.value.firstName} ${form.value.lastName}</p>
+          <p style="margin:0 0 6px;"><strong>DOB:</strong> ${form.value.dob}</p>
+          <p style="margin:0 0 6px;"><strong>Age:</strong> ${calculatedAge.value ?? 'N/A'}</p>
+          <p style="margin:0 0 6px;"><strong>Gender:</strong> ${form.value.gender}</p>
+          <p style="margin:0 0 10px;"><strong>Position:</strong> ${form.value.position}</p>
+          <h3 style="margin:12px 0 6px;color:#0F1B4C;">Contact Details</h3>
+          <p style="margin:0 0 6px;"><strong>Email:</strong> ${form.value.email}</p>
+          <p style="margin:0 0 6px;"><strong>Phone:</strong> ${form.value.phone}</p>
+          <p style="margin:0 0 6px;"><strong>Residence:</strong> ${form.value.residence}</p>
+          <p style="margin:0 0 10px;"><strong>Address:</strong> ${form.value.address}</p>
+          <h3 style="margin:12px 0 6px;color:#0F1B4C;">Safeguarding & Notes</h3>
+          <p style="margin:0 0 6px;"><strong>Guardian Name:</strong> ${form.value.guardianName || 'N/A'}</p>
+          <p style="margin:0 0 6px;"><strong>Guardian Contact:</strong> ${form.value.guardianContact || 'N/A'}</p>
+          <p style="margin:0 0 6px;"><strong>Referral:</strong> ${form.value.referral || 'Not specified'}</p>
+          <p style="margin:0 0 6px;"><strong>Marketing Consent:</strong> ${form.value.marketing ? 'Yes' : 'No'}</p>
+          <p style="margin:14px 0 0;color:#666;"><strong>Submitted:</strong> ${submittedAt}</p>
+        `,
       },
       EMAILJS_CONFIG.PUBLIC_KEY,
     )
     submitted.value = true
   } catch {
-    formError.value = 'Something went wrong. Please email us directly at info@idfootballclub.outlook or try again.'
+    formError.value = 'Something went wrong. Please email us directly at id.footballstars@gmail.com or try again.'
   } finally {
     submitting.value = false
   }
