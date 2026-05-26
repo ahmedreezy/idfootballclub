@@ -122,6 +122,7 @@
         </div>
         <p class="font-body text-white/30 text-xs text-center">
           © {{ currentYear }} ID All Stars Football Club. All Rights Reserved. Manchester, United Kingdom.
+          <span class="opacity-50">&nbsp;&middot;&nbsp;v{{ appVersion }}</span>
         </p>
         <p class="font-body text-white/20 text-xs text-center mt-2">
           Powered by
@@ -163,6 +164,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import logoImg from '../assets/newlogo.png.jpeg'
+import { version as appVersion } from '../../package.json'
 
 const currentYear = new Date().getFullYear()
 const activeModal = ref<string | null>(null)

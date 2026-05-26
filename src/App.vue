@@ -13,6 +13,7 @@ import RegistrationForm from './components/RegistrationForm.vue'
 import ContactSection from './components/ContactSection.vue'
 import TheFooter from './components/TheFooter.vue'
 import KitThemeSwitcher from './components/KitThemeSwitcher.vue'
+import { version as appVersion } from '../package.json'
 
 type KitTheme = 'home' | 'away'
 
@@ -52,5 +53,6 @@ watch(kitTheme, (theme) => {
     </main>
     <TheFooter />
     <KitThemeSwitcher :current-theme="kitThemeLabel" @toggle="toggleKitTheme" />
+    <span class="fixed bottom-3 left-3 z-40 font-mono text-[10px] text-white/30 select-none pointer-events-none" aria-hidden="true">v{{ appVersion }}</span>
   </div>
 </template>
