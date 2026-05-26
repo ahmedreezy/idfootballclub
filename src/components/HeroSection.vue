@@ -11,7 +11,7 @@
         class="w-full h-full object-cover object-center"
       />
       <!-- Dark overlay gradient -->
-      <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/80 via-navy-dark/70 to-navy-dark"></div>
+      <div class="hero-overlay absolute inset-0"></div>
       <!-- Gold shimmer line -->
       <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
     </div>

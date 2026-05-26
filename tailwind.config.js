@@ -8,14 +8,14 @@ export default {
     extend: {
       colors: {
         navy: {
-          DEFAULT: '#0F1B4C',
-          dark: '#070E2B',
-          light: '#1a2d6b',
+          DEFAULT: 'rgb(var(--kit-surface-rgb) / <alpha-value>)',
+          dark: 'rgb(var(--kit-page-rgb) / <alpha-value>)',
+          light: 'rgb(var(--kit-field-rgb) / <alpha-value>)',
         },
         gold: {
-          DEFAULT: '#D4AF37',
-          light: '#e8cc6a',
-          dark: '#a8891c',
+          DEFAULT: 'rgb(var(--kit-gold-rgb) / <alpha-value>)',
+          light: 'rgb(var(--kit-gold-light-rgb) / <alpha-value>)',
+          dark: 'rgb(var(--kit-gold-dark-rgb) / <alpha-value>)',
         },
       },
       fontFamily: {

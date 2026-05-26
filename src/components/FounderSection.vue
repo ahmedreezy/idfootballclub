@@ -115,6 +115,7 @@
 
 <script setup lang="ts">
 import founderImg from '../assets/founder.png.png'
+import accringtonBadge from '../assets/accrington-badge.svg'
 import { reactive } from 'vue'
 
 const nations = [
@@ -134,7 +135,7 @@ const clubs = reactive([
   { name: 'Blackburn Rovers', initials: 'BR', badge: 'https://crests.football-data.org/59.svg', imgError: false },
   { name: 'Burnley', initials: 'BFC', badge: 'https://crests.football-data.org/328.svg', imgError: false },
   { name: 'Wigan Athletic', initials: 'WA', badge: 'https://crests.football-data.org/75.svg', imgError: false },
-  { name: 'Bolton Wanderers', initials: 'BW', badge: 'https://upload.wikimedia.org/wikipedia/en/8/8b/Bolton_Wanderers_FC_logo.svg', imgError: false },
-  { name: 'Accrington Stanley', initials: 'AS', badge: 'https://crests.football-data.org/333.svg', imgError: false },
+  { name: 'Bolton Wanderers', initials: 'BW', badge: 'https://crests.football-data.org/389.svg', imgError: false },
+  { name: 'Accrington Stanley', initials: 'AS', badge: accringtonBadge, imgError: false },
 ])
 </script>

@@ -79,6 +79,7 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
+import accringtonBadge from '../assets/accrington-badge.svg'
 
 const nations = [
   { name: 'England', code: 'gb-eng' },
@@ -97,8 +98,8 @@ const clubs = reactive([
   { name: 'Blackburn Rovers', initials: 'BR', league: 'EFL Championship', badge: 'https://crests.football-data.org/59.svg', imgError: false },
   { name: 'Burnley', initials: 'BFC', league: 'Premier League', badge: 'https://crests.football-data.org/328.svg', imgError: false },
   { name: 'Wigan Athletic', initials: 'WA', league: 'EFL League One', badge: 'https://crests.football-data.org/75.svg', imgError: false },
-  { name: 'Bolton Wanderers', initials: 'BW', league: 'EFL League One', badge: 'https://upload.wikimedia.org/wikipedia/en/8/8b/Bolton_Wanderers_FC_logo.svg', imgError: false },
-  { name: 'Accrington Stanley', initials: 'AS', league: 'EFL League One', badge: 'https://crests.football-data.org/333.svg', imgError: false },
+  { name: 'Bolton Wanderers', initials: 'BW', league: 'EFL League One', badge: 'https://crests.football-data.org/389.svg', imgError: false },
+  { name: 'Accrington Stanley', initials: 'AS', league: 'EFL League One', badge: accringtonBadge, imgError: false },
 ])
 
 function scrollTo(id: string) {

@@ -123,6 +123,14 @@
         <p class="font-body text-white/30 text-xs text-center">
           © {{ currentYear }} ID All Stars Football Club. All Rights Reserved. Manchester, United Kingdom.
         </p>
+        <p class="font-body text-white/20 text-xs text-center mt-2">
+          Powered by
+          <span class="text-white/35 font-semibold">Dape Technologies</span>
+          &mdash;
+          <a href="https://wa.me/qr/L3QQY4UE76ONM1" target="_blank" rel="noopener noreferrer" class="text-white/35 hover:text-gold transition-colors">+256 742 026 823</a>
+          &nbsp;/&nbsp;
+          <a href="https://wa.me/qr/DDOSZR6M6OI3A1" target="_blank" rel="noopener noreferrer" class="text-white/35 hover:text-gold transition-colors">+256 704 045 918</a>
+        </p>
       </div>
     </div>
 

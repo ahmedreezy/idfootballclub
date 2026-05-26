@@ -15,8 +15,8 @@
             class="w-20 h-20 rounded-full object-cover group-hover:scale-110 transition-transform duration-300 border-4 border-gold/60 shadow-lg shadow-gold/20"
           />
           <div class="hidden sm:block">
-            <p class="font-heading font-black text-white text-lg leading-tight">ID ALL STARS</p>
-            <p class="font-body text-gold text-xs tracking-widest uppercase">Football Club</p>
+            <p class="font-heading font-black text-lg leading-tight drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]" style="color:#ffffff">ID ALL STARS</p>
+            <p class="font-body text-gold text-xs tracking-widest uppercase drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">Football Club</p>
           </div>
         </a>
 

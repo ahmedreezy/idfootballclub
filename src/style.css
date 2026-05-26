@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+:root,
+[data-kit-theme="home"] {
+  --kit-page-rgb: 230 222 203;
+  --kit-surface-rgb: 246 241 229;
+  --kit-field-rgb: 214 203 178;
+  --kit-gold-rgb: 177 132 31;
+  --kit-gold-light-rgb: 209 170 69;
+  --kit-gold-dark-rgb: 114 82 15;
+}
+
+[data-kit-theme="away"] {
+  --kit-page-rgb: 6 11 30;
+  --kit-surface-rgb: 13 24 62;
+  --kit-field-rgb: 24 42 99;
+  --kit-gold-rgb: 212 175 55;
+  --kit-gold-light-rgb: 232 204 106;
+  --kit-gold-dark-rgb: 168 137 28;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -67,6 +86,126 @@
   .input-error {
     @apply text-red-400 text-xs mt-1;
   }
+
+  .kit-switcher {
+    @apply fixed right-4 bottom-5 md:right-8 md:bottom-8 z-[60] w-28 h-32 overflow-hidden rounded-2xl border-2 border-gold bg-navy shadow-2xl shadow-black/35 transition-all duration-300 hover:-translate-y-1 hover:shadow-gold/30 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy-dark;
+  }
+
+  .kit-switcher__image {
+    @apply absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110;
+  }
+
+  .kit-switcher__shade {
+    @apply absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/10;
+  }
+
+  .kit-switcher__label {
+    @apply absolute left-1/2 bottom-3 -translate-x-1/2 rounded-full bg-gold px-4 py-1 font-heading text-xs font-black uppercase tracking-widest text-navy shadow-lg;
+  }
+
+  .kit-switcher__pitch {
+    @apply absolute inset-0 w-full h-full pointer-events-none;
+  }
+
+  .kit-switcher__ball {
+    @apply absolute top-2 left-1/2 -translate-x-1/2 text-xl drop-shadow-lg pointer-events-none select-none;
+  }
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(to bottom, rgb(6 11 30 / 0.78), rgb(6 11 30 / 0.66), rgb(6 11 30 / 0.92)),
+    radial-gradient(circle at 50% 50%, transparent 0 12rem, rgb(212 175 55 / 0.12) 12.1rem 12.25rem, transparent 12.35rem);
+}
+
+[data-kit-theme="home"] .hero-overlay {
+  background:
+    linear-gradient(to bottom, rgb(17 24 39 / 0.62), rgb(17 24 39 / 0.50), rgb(var(--kit-page-rgb) / 0.94)),
+    radial-gradient(circle at 50% 50%, transparent 0 12rem, rgb(var(--kit-gold-rgb) / 0.18) 12.1rem 12.25rem, transparent 12.35rem);
+}
+
+[data-kit-theme] section:not(#home) {
+  background-image:
+    radial-gradient(circle at 8% 18%, transparent 0 3.7rem, rgb(var(--kit-gold-rgb) / 0.13) 3.75rem 3.86rem, transparent 3.95rem),
+    radial-gradient(circle at 92% 74%, transparent 0 4.5rem, rgb(255 255 255 / 0.08) 4.56rem 4.68rem, transparent 4.78rem),
+    linear-gradient(90deg, rgb(var(--kit-gold-rgb) / 0.04) 0 1px, transparent 1px 5rem),
+    linear-gradient(0deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 5rem);
+  background-size: auto, auto, 5rem 5rem, 5rem 5rem;
+  background-position: center;
+}
+
+[data-kit-theme="home"] section:not(#home) {
+  box-shadow: inset 0 1px 0 rgb(17 24 39 / 0.05);
+}
+
+[data-kit-theme="away"] section:not(#home) {
+  background-image:
+    radial-gradient(circle at 8% 18%, transparent 0 3.7rem, rgb(var(--kit-gold-rgb) / 0.12) 3.75rem 3.86rem, transparent 3.95rem),
+    radial-gradient(circle at 92% 74%, transparent 0 4.5rem, rgb(255 255 255 / 0.05) 4.56rem 4.68rem, transparent 4.78rem),
+    linear-gradient(90deg, rgb(255 255 255 / 0.025) 0 1px, transparent 1px 5rem),
+    linear-gradient(0deg, rgb(255 255 255 / 0.02) 0 1px, transparent 1px 5rem);
+}
+
+[data-kit-theme="home"] #home .text-white,
+[data-kit-theme="home"] #home .text-white\/75,
+[data-kit-theme="home"] #home .text-white\/70,
+[data-kit-theme="home"] #home .text-white\/60,
+[data-kit-theme="home"] #home .text-white\/40 {
+  color: rgb(255 255 255 / 0.92);
+}
+
+[data-kit-theme="home"] {
+  color: rgb(17 24 39);
+}
+
+[data-kit-theme="home"] .text-white { color: rgb(17 24 39); }
+[data-kit-theme="home"] .text-white\/90 { color: rgb(17 24 39 / 0.90); }
+[data-kit-theme="home"] .text-white\/80 { color: rgb(17 24 39 / 0.80); }
+[data-kit-theme="home"] .text-white\/75 { color: rgb(17 24 39 / 0.75); }
+[data-kit-theme="home"] .text-white\/70 { color: rgb(17 24 39 / 0.70); }
+[data-kit-theme="home"] .text-white\/65 { color: rgb(17 24 39 / 0.65); }
+[data-kit-theme="home"] .text-white\/60 { color: rgb(17 24 39 / 0.60); }
+[data-kit-theme="home"] .text-white\/55 { color: rgb(17 24 39 / 0.55); }
+[data-kit-theme="home"] .text-white\/50 { color: rgb(17 24 39 / 0.50); }
+[data-kit-theme="home"] .text-white\/40 { color: rgb(17 24 39 / 0.40); }
+[data-kit-theme="home"] .text-white\/35 { color: rgb(17 24 39 / 0.35); }
+[data-kit-theme="home"] .text-white\/30 { color: rgb(17 24 39 / 0.30); }
+
+[data-kit-theme="home"] .text-navy { color: rgb(17 24 39); }
+[data-kit-theme="home"] .text-navy\/80 { color: rgb(17 24 39 / 0.80); }
+[data-kit-theme="home"] .text-navy\/70 { color: rgb(17 24 39 / 0.70); }
+[data-kit-theme="home"] .text-navy\/60 { color: rgb(17 24 39 / 0.60); }
+
+[data-kit-theme="home"] .divide-navy\/30 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgb(17 24 39 / 0.24);
+}
+
+[data-kit-theme="home"] .border-white { border-color: rgb(17 24 39); }
+[data-kit-theme="home"] .border-white\/50 { border-color: rgb(17 24 39 / 0.18); }
+[data-kit-theme="home"] .border-white\/20 { border-color: rgb(17 24 39 / 0.14); }
+[data-kit-theme="home"] .border-white\/10 { border-color: rgb(17 24 39 / 0.10); }
+
+[data-kit-theme="home"] .bg-white\/10 { background-color: rgb(17 24 39 / 0.08); }
+[data-kit-theme="home"] .bg-white\/5 { background-color: rgb(17 24 39 / 0.05); }
+[data-kit-theme="home"] .bg-green-900\/40 { background-color: rgb(220 252 231 / 0.85); }
+
+[data-kit-theme="home"] .shadow-black\/60,
+[data-kit-theme="home"] .shadow-black\/50,
+[data-kit-theme="home"] .shadow-black\/40,
+[data-kit-theme="home"] .shadow-black\/35,
+[data-kit-theme="home"] .shadow-black\/30 {
+  --tw-shadow-color: rgb(17 24 39 / 0.16);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+[data-kit-theme="home"] .btn-outline:hover {
+  background-color: rgb(var(--kit-gold-rgb));
+  border-color: rgb(var(--kit-gold-rgb));
+  color: rgb(17 24 39);
+}
+
+[data-kit-theme="home"] .group:hover .group-hover\:text-white\/80 {
+  color: rgb(17 24 39 / 0.80);
 }
 
 /* Scrollbar */
