@@ -114,7 +114,7 @@
 </template>
 
 <script setup lang="ts">
-import founderImg from '../assets/founder.png.png'
+import founderImg from '../assets/founder.png.jpeg'
 import accringtonBadge from '../assets/accrington-badge.svg'
 import { reactive } from 'vue'
 
