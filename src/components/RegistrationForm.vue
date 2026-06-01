@@ -449,6 +449,7 @@ async function handleSubmit() {
       {
         to_email: EMAILJS_CONFIG.TO_EMAIL,
         player_name: `${form.value.firstName} ${form.value.lastName}`,
+        reply_to: form.value.email,
         dob: form.value.dob,
         age: calculatedAge.value,
         gender: form.value.gender,
@@ -490,7 +491,7 @@ async function handleSubmit() {
     )
     submitted.value = true
   } catch {
-    formError.value = 'Something went wrong. Please email us directly at id.footballstars@gmail.com or try again.'
+    formError.value = `Something went wrong. Please email us directly at ${EMAILJS_CONFIG.TO_EMAIL} or try again.`
   } finally {
     submitting.value = false
   }

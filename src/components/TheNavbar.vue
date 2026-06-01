@@ -125,6 +125,9 @@ function scrollTo(id: string) {
   if (el) {
     el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
+  if (id === 'home') {
+    window.dispatchEvent(new CustomEvent('idfc:replay-home'))
+  }
   mobileOpen.value = false
 }
 

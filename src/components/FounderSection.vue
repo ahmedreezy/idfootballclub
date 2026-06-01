@@ -20,8 +20,8 @@
           <div class="relative">
             <div class="w-72 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden border-4 border-gold/40 shadow-2xl shadow-black/60">
               <img
-            :src="founderImg"
-              alt="Mr. ID - ID All Stars Founder"
+                :src="founderImg"
+                alt="Mr. ID - ID All Stars Founder"
                 class="w-full h-full object-cover object-top"
               />
             </div>
@@ -114,7 +114,7 @@
 </template>
 
 <script setup lang="ts">
-import founderImg from '../assets/founder.png.jpeg'
+import founderImg from '../assets/founder.jpg.jpeg'
 import accringtonBadge from '../assets/accrington-badge.svg'
 import { reactive } from 'vue'
 

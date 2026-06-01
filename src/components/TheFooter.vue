@@ -77,8 +77,8 @@
           <ul class="space-y-3">
             <li class="flex items-start gap-3">
               <span class="text-gold text-sm mt-0.5">✉️</span>
-              <a href="mailto:id.footballstars@gmail.com" class="font-body text-white/55 text-sm hover:text-gold transition-colors break-all">
-                id.footballstars@gmail.com
+              <a :href="`mailto:${EMAILJS_CONFIG.TO_EMAIL}`" class="font-body text-white/55 text-sm hover:text-gold transition-colors break-all">
+                {{ EMAILJS_CONFIG.TO_EMAIL }}
               </a>
             </li>
             <li class="flex items-start gap-3">
@@ -164,6 +164,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import logoImg from '../assets/newlogo.png.jpeg'
+import { EMAILJS_CONFIG } from '../lib/emailjs.config'
 import { version as appVersion } from '../../package.json'
 
 const currentYear = new Date().getFullYear()
@@ -196,7 +197,7 @@ const modals: Record<string, { title: string; content: string }> = {
       <p><strong>Data We Collect:</strong> Name, date of birth, contact information, guardian details, and training preferences collected via our registration forms.</p>
       <p><strong>How We Use Your Data:</strong> To manage academy membership, communicate updates, and comply with safeguarding obligations. We do not sell or share your data with third parties.</p>
       <p><strong>Data Retention:</strong> We retain registration data for the duration of a player's membership plus 3 years, after which it is securely deleted.</p>
-      <p><strong>Your Rights:</strong> Under UK GDPR, you have the right to access, correct, or request deletion of your data. Contact us at id.footballstars@gmail.com.</p>
+      <p><strong>Your Rights:</strong> Under UK GDPR, you have the right to access, correct, or request deletion of your data. Contact us at ${EMAILJS_CONFIG.TO_EMAIL}.</p>
     `,
   },
   terms: {

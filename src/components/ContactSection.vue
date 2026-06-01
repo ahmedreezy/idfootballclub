@@ -238,6 +238,7 @@ async function handleSubmit() {
         to_email: EMAILJS_CONFIG.TO_EMAIL,
         from_name: form.value.name,
         from_email: form.value.email,
+        reply_to: form.value.email,
         phone: form.value.phone || 'Not provided',
         subject: fullSubject,
         message: form.value.message,
@@ -260,14 +261,14 @@ async function handleSubmit() {
     )
     submitted.value = true
   } catch {
-    formError.value = 'Something went wrong. Please email us at id.footballstars@gmail.com'
+    formError.value = `Something went wrong. Please email us at ${EMAILJS_CONFIG.TO_EMAIL}`
   } finally {
     submitting.value = false
   }
 }
 
 const contactInfo = [
-  { label: 'Email', icon: '✉️', value: 'id.footballstars@gmail.com', href: 'mailto:id.footballstars@gmail.com' },
+  { label: 'Email', icon: '✉️', value: EMAILJS_CONFIG.TO_EMAIL, href: `mailto:${EMAILJS_CONFIG.TO_EMAIL}` },
   { label: 'Location', icon: '📍', value: 'Manchester, United Kingdom', href: null },
   { label: 'Training Hours', icon: '⏰', value: 'Mon–Sat · Various times by age group', href: null },
 ]

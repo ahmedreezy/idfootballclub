@@ -3,10 +3,12 @@ import { computed, onMounted, ref, watch } from 'vue'
 import TheNavbar from './components/TheNavbar.vue'
 import HeroSection from './components/HeroSection.vue'
 import StatsBar from './components/StatsBar.vue'
+import UpcomingTrials from './components/UpcomingTrials.vue'
 import AboutSection from './components/AboutSection.vue'
 import FounderSection from './components/FounderSection.vue'
 import VisionMission from './components/VisionMission.vue'
 import WallOfFame from './components/WallOfFame.vue'
+import TestimonialsSection from './components/TestimonialsSection.vue'
 import OpportunitiesSection from './components/OpportunitiesSection.vue'
 import GallerySection from './components/GallerySection.vue'
 import RegistrationForm from './components/RegistrationForm.vue'
@@ -42,10 +44,12 @@ watch(kitTheme, (theme) => {
     <main>
       <HeroSection />
       <StatsBar />
+      <UpcomingTrials />
       <AboutSection />
       <FounderSection />
       <VisionMission />
       <WallOfFame />
+      <TestimonialsSection />
       <OpportunitiesSection />
       <GallerySection />
       <RegistrationForm />

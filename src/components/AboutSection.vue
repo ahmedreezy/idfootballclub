@@ -14,12 +14,35 @@
 
       <!-- Kingmaker Story -->
       <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
-        <div class="relative">
+        <div class="relative overflow-hidden rounded-2xl shadow-2xl shadow-black/50 border border-white/10">
           <img
-            :src="trainingImg"
-            alt="ID All Stars training session"
-            class="rounded-2xl w-full h-96 object-cover shadow-2xl shadow-black/50 border border-white/10"
+            v-for="(slide, index) in aboutSlides"
+            :key="slide.src"
+            :src="slide.src"
+            :alt="slide.alt"
+            loading="lazy"
+            decoding="async"
+            :class="[
+              'absolute inset-0 h-full w-full object-cover transition-opacity duration-1000',
+              activeSlide === index ? 'opacity-100' : 'opacity-0',
+            ]"
           />
+          <div class="relative h-96"></div>
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-dark/90 to-transparent p-5">
+            <p class="font-heading text-sm uppercase tracking-widest text-gold">{{ aboutSlides[activeSlide].label }}</p>
+            <p class="font-body mt-1 text-sm text-white/70">{{ aboutSlides[activeSlide].caption }}</p>
+          </div>
+          <div class="absolute left-5 top-5 flex gap-2">
+            <button
+              v-for="index in aboutProgressDots"
+              :key="index"
+              :class="[
+                'h-1.5 rounded-full transition-all duration-300',
+                Math.floor((activeSlide / aboutSlides.length) * aboutProgressDots) === index - 1 ? 'w-8 bg-gold' : 'w-3 bg-white/40',
+              ]"
+              aria-hidden="true"
+            ></button>
+          </div>
           <!-- Gold quote badge -->
           <div class="absolute -bottom-6 -right-6 bg-gold rounded-2xl p-5 shadow-xl max-w-xs hidden md:block">
             <p class="font-heading font-bold text-navy text-sm leading-snug italic">
@@ -91,7 +114,42 @@
 </template>
 
 <script setup lang="ts">
-import trainingImg from '../assets/IMG_1582.JPG'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { galleryPhotos } from '../lib/galleryImages'
+
+const aboutLabels = [
+  { label: 'High repetition', caption: 'Technical standards built through thousands of touches.' },
+  { label: 'First touch', caption: 'Ball mastery, scanning, and pressure-based decisions.' },
+  { label: 'Togetherness', caption: 'A demanding environment with care at the centre.' },
+  { label: 'Game ready', caption: 'Training details carried into competitive moments.' },
+]
+
+// Pick 5 photos spread evenly across the full gallery for the About section slideshow
+const ABOUT_COUNT = 5
+const aboutStep = Math.max(1, Math.floor(galleryPhotos.length / ABOUT_COUNT))
+const aboutSlides = galleryPhotos
+  .filter((_, i) => i % aboutStep === 0)
+  .slice(0, ABOUT_COUNT)
+  .map((photo, index) => ({
+    src: photo.src,
+    alt: photo.alt,
+    label: aboutLabels[index % aboutLabels.length].label,
+    caption: aboutLabels[index % aboutLabels.length].caption,
+  }))
+const aboutProgressDots = aboutSlides.length
+
+const activeSlide = ref(0)
+let slideTimer: ReturnType<typeof setInterval> | undefined
+
+onMounted(() => {
+  slideTimer = setInterval(() => {
+    activeSlide.value = (activeSlide.value + 1) % aboutSlides.length
+  }, 4200)
+})
+
+onUnmounted(() => {
+  if (slideTimer) clearInterval(slideTimer)
+})
 
 const pillars = [
   {
