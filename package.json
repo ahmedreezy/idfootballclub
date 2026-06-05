@@ -11,6 +11,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@vueuse/core": "^14.2.1",
+    "emailjs": "^5.0.1",
     "vee-validate": "^4.15.1",
     "vue": "^3.5.32",
     "yup": "^1.7.1"
