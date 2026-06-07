@@ -28,14 +28,14 @@
         </a>
 
         <!-- Desktop Nav -->
-        <div class="hidden lg:flex items-center gap-1">
+        <div class="hidden lg:flex items-center gap-0.5 xl:gap-1">
           <a
             v-for="link in navLinks"
             :key="link.id"
             href="#"
             @click.prevent="scrollTo(link.id)"
             :class="[
-              'px-4 py-2 rounded-lg font-heading font-semibold text-sm transition-all duration-200',
+              'px-2.5 xl:px-4 py-2 rounded-lg font-heading font-semibold text-xs xl:text-sm transition-all duration-200',
               activeSection === link.id
                 ? 'text-gold bg-gold/10'
                 : 'text-white/80 hover:text-gold hover:bg-white/5',
@@ -132,12 +132,12 @@ const activeLogo = ref<LogoKey>('white')
 
 const navLinks = [
   { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About Us' },
-  { id: 'founder', label: 'Our Founder' },
-  { id: 'vision', label: 'Vision & Mission' },
-  { id: 'opportunities', label: 'ID Opportunities' },
+  { id: 'about', label: 'About' },
+  { id: 'founder', label: 'Founder' },
+  { id: 'vision', label: 'Vision' },
+  { id: 'opportunities', label: 'Opportunities' },
   { id: 'gallery', label: 'Gallery' },
-  { id: 'contact', label: 'Contact Us' },
+  { id: 'contact', label: 'Contact' },
 ]
 
 function scrollTo(id: string) {

@@ -19,7 +19,7 @@ import { version as appVersion } from '../package.json'
 
 type KitTheme = 'home' | 'away'
 
-const kitTheme = ref<KitTheme>('home')
+const kitTheme = ref<KitTheme>('away') // LOCKED: light mode deactivated — keep code, do not delete
 const kitThemeLabel = computed(() => kitTheme.value === 'home' ? 'Home' : 'Away')
 
 function toggleKitTheme() {
@@ -56,7 +56,9 @@ watch(kitTheme, (theme) => {
       <ContactSection />
     </main>
     <TheFooter />
+    <!-- KitThemeSwitcher deactivated — light mode disabled; component preserved for future use
     <KitThemeSwitcher :current-theme="kitThemeLabel" @toggle="toggleKitTheme" />
+    -->
     <span class="fixed bottom-3 left-3 z-40 font-mono text-[10px] text-white/30 select-none pointer-events-none" aria-hidden="true">v{{ appVersion }}</span>
   </div>
 </template>

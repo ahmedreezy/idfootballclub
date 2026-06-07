@@ -2,102 +2,137 @@
   <section
     ref="homeSection"
     id="home"
-    class="relative min-h-screen flex items-start md:items-center justify-center pt-28 pb-16 md:pb-24"
+    class="relative min-h-screen bg-navy-dark overflow-hidden flex flex-col"
   >
-    <!-- Background Image -->
-    <div class="absolute inset-0">
-      <img
-        v-for="(slide, index) in heroSlides"
-        :key="slide.src"
-        :src="slide.src"
-        :alt="slide.alt"
-        :class="['hero-slide', activeSlide === index ? 'is-active' : '']"
-      />
-      <!-- Dark overlay gradient -->
-      <div class="hero-overlay absolute inset-0"></div>
-      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy-dark via-navy-dark/40 to-transparent"></div>
-      <!-- Gold shimmer line -->
-      <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
-    </div>
+    <!-- Background: subtle radial gold glow + grid texture -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_65%_50%,rgba(212,175,55,0.07)_0%,transparent_70%)] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_10%_50%,rgba(15,27,76,0.8)_0%,transparent_70%)] pointer-events-none"></div>
+    <!-- Gold shimmer line bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent z-10"></div>
 
-    <!-- Floating badge -->
-    <div class="absolute top-32 right-8 md:right-16 hidden md:flex flex-col items-center">
-      <div class="w-24 h-24 rounded-full border-4 border-gold bg-navy-dark/80 flex flex-col items-center justify-center backdrop-blur-sm animate-pulse">
-        <span class="font-heading font-black text-gold text-2xl">14+</span>
-        <span class="font-body text-white/70 text-xs text-center leading-tight">Years<br/>Experience</span>
-      </div>
-    </div>
+    <!-- Two-column grid -->
+    <div
+      :key="animationKey"
+      class="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 pt-28 pb-16 lg:pt-32 lg:pb-16 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center"
+    >
 
-    <!-- Content -->
-    <div :key="animationKey" class="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8 text-center">
-      <!-- Eyebrow -->
-      <div class="hero-enter-1 football-emphasis mx-auto mb-3 inline-flex max-w-[min(100%,21rem)] items-center justify-center gap-2 rounded-2xl border border-gold/40 bg-gold/20 px-4 py-2 backdrop-blur-sm sm:mb-5 sm:max-w-none sm:rounded-full sm:px-5">
-        <span class="h-2 w-2 flex-shrink-0 rounded-full bg-gold animate-pulse"></span>
-        <span class="font-body text-gold text-xs font-medium uppercase leading-snug tracking-wider sm:text-sm">{{ heroSlides[activeSlide].tagline }}</span>
-      </div>
+      <!-- LEFT: Copy -->
+      <div class="text-center lg:text-left order-2 lg:order-1 flex flex-col justify-center">
 
-      <!-- Main heading -->
-      <h1 class="mb-3 font-heading text-[1.6rem] font-black leading-snug text-white sm:mb-5 sm:text-4xl sm:leading-[1.08] md:text-6xl lg:text-7xl">
-        <span class="block hero-line-1">We Don't Just</span>
-        <span class="football-emphasis block text-gold drop-shadow-lg hero-line-2">Develop Players.</span>
-        <span class="block hero-line-3">We Build <span class="football-emphasis inline-block italic text-gold">Kings.</span></span>
-      </h1>
-
-      <!-- Subheadline -->
-      <p class="hero-enter-3 mx-auto mb-4 max-w-2xl font-body text-sm leading-relaxed text-white/75 sm:mb-8 sm:text-base md:text-xl">
-        For over 14 years, the <strong class="text-gold font-semibold">ID Method</strong> has placed players
-        in the English Premier League and national teams across 5 countries.
-        Technical foundations are the floor — character is the ceiling.
-      </p>
-
-      <!-- Stats row -->
-      <div class="hero-enter-4 mb-4 flex flex-wrap items-center justify-center gap-3 sm:mb-8 md:gap-8">
-        <div v-for="stat in heroStats" :key="stat.label" class="football-emphasis flex flex-col items-center">
-          <span class="font-heading font-black text-gold text-2xl md:text-3xl">{{ stat.value }}</span>
-          <span class="font-body text-white/60 text-xs md:text-sm uppercase tracking-wider">{{ stat.label }}</span>
+        <!-- Eyebrow -->
+        <div class="hero-enter-1 football-emphasis mb-5 inline-flex lg:self-start items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 backdrop-blur-sm mx-auto lg:mx-0">
+          <span class="h-2 w-2 flex-shrink-0 rounded-full bg-gold animate-pulse"></span>
+          <span class="font-body text-gold text-xs font-medium uppercase tracking-wider sm:text-sm">{{ heroSlides[activeSlide].tagline }}</span>
         </div>
-      </div>
 
-      <!-- CTAs -->
-      <div class="hero-enter-5 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-        <button @click="scrollTo('register')" class="btn-primary w-full max-w-xs px-8 py-3 text-sm sm:w-auto sm:px-10 sm:py-4 sm:text-base">
-          Join the Academy
-        </button>
-        <button @click="openHighlights" class="btn-outline-gold inline-flex w-full max-w-xs items-center justify-center gap-2 px-8 py-3 text-sm sm:w-auto sm:px-10 sm:py-4 sm:text-base">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-          Watch Highlights
-        </button>
-        <button @click="scrollTo('founder')" class="btn-outline w-full max-w-xs px-8 py-3 text-sm sm:w-auto sm:px-10 sm:py-4 sm:text-base">
-          Our Story
-        </button>
-      </div>
+        <!-- Main heading -->
+        <h1 class="mb-5 font-heading text-[2rem] font-black leading-tight text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+          <span class="block hero-line-1">We Don't Just</span>
+          <span class="football-emphasis block text-gold drop-shadow-lg hero-line-2">Develop Players.</span>
+          <span class="block hero-line-3">We Build <span class="football-emphasis inline-block italic text-gold">Kings.</span></span>
+        </h1>
 
-      <!-- Live highlights — floating tiles -->
-      <div class="hero-enter-5 mt-10 w-full">
-        <div class="mx-auto max-w-6xl flex gap-3 overflow-x-auto pb-2 sm:pb-0 sm:grid sm:grid-cols-3 sm:gap-4 snap-x snap-mandatory scrollbar-none">
-          <button
-            v-for="(moment, index) in matchMoments"
-            :key="moment.title"
-            @click="activeMoment = index"
-            :class="[
-              'football-emphasis flex-shrink-0 w-64 sm:w-auto snap-start rounded-2xl border p-4 backdrop-blur-md transition-all duration-300 text-left',
-              activeMoment === index
-                ? 'border-gold bg-gold/15 shadow-lg shadow-gold/20'
-                : 'border-white/15 bg-navy-dark/45 hover:border-gold/50 hover:bg-navy-dark/65',
-            ]"
-          >
-            <span class="font-heading text-gold text-xs uppercase tracking-widest">{{ moment.minute }}</span>
-            <span class="block font-heading font-bold text-white mt-1">{{ moment.title }}</span>
-            <span class="block font-body text-white/60 text-sm mt-1">{{ moment.copy }}</span>
+        <!-- Subheadline -->
+        <p class="hero-enter-3 mb-7 font-body text-sm leading-relaxed text-white/70 sm:text-base md:text-lg mx-auto lg:mx-0 max-w-lg">
+          For over 14 years, the <strong class="text-gold font-semibold">ID Method</strong> has placed players
+          in the English Premier League and national teams across 5 countries.
+          Technical foundations are the floor — character is the ceiling.
+        </p>
+
+        <!-- Stats row -->
+        <div class="hero-enter-4 mb-7 flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-10">
+          <div v-for="stat in heroStats" :key="stat.label" class="football-emphasis flex flex-col items-center lg:items-start">
+            <span class="font-heading font-black text-gold text-2xl md:text-3xl">{{ stat.value }}</span>
+            <span class="font-body text-white/60 text-xs uppercase tracking-wider">{{ stat.label }}</span>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="hero-enter-5 flex flex-col items-center lg:items-start gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
+          <button @click="scrollTo('register')" class="btn-primary w-full max-w-xs px-8 py-3 text-sm sm:w-auto sm:px-10 sm:py-4 sm:text-base">
+            Join the Academy
+          </button>
+          <button @click="openHighlights" class="btn-outline-gold inline-flex w-full max-w-xs items-center justify-center gap-2 px-8 py-3 text-sm sm:w-auto sm:px-10 sm:py-4 sm:text-base">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            Watch Highlights
+          </button>
+          <button @click="scrollTo('founder')" class="btn-outline w-full max-w-xs px-8 py-3 text-sm sm:w-auto sm:px-10 sm:py-4 sm:text-base">
+            Our Story
           </button>
         </div>
+
+        <!-- Floating tiles -->
+        <div class="hero-enter-5 mt-8 w-full">
+          <div class="flex gap-3 overflow-x-auto pb-2 sm:pb-0 sm:grid sm:grid-cols-3 sm:gap-3 snap-x snap-mandatory scrollbar-none">
+            <button
+              v-for="(moment, index) in matchMoments"
+              :key="moment.title"
+              @click="activeMoment = index"
+              :class="[
+                'football-emphasis flex-shrink-0 w-56 sm:w-auto snap-start rounded-2xl border p-3 backdrop-blur-md transition-all duration-300 text-left',
+                activeMoment === index
+                  ? 'border-gold bg-gold/15 shadow-lg shadow-gold/20'
+                  : 'border-white/10 bg-white/5 hover:border-gold/40 hover:bg-white/10',
+              ]"
+            >
+              <span class="font-heading text-gold text-xs uppercase tracking-widest">{{ moment.minute }}</span>
+              <span class="block font-heading font-bold text-white mt-1 text-sm">{{ moment.title }}</span>
+              <span class="block font-body text-white/55 text-xs mt-1">{{ moment.copy }}</span>
+            </button>
+          </div>
+        </div>
       </div>
+
+      <!-- RIGHT: Slideshow panel -->
+      <div class="order-1 lg:order-2 relative flex items-center justify-center">
+
+        <!-- 14+ badge — floats off top-left corner of the frame -->
+        <div class="absolute -top-5 -left-5 lg:-top-7 lg:-left-7 w-20 h-20 lg:w-24 lg:h-24 rounded-full border-4 border-gold bg-navy-dark flex flex-col items-center justify-center shadow-2xl shadow-gold/30 z-20">
+          <span class="font-heading font-black text-gold text-xl lg:text-2xl leading-none">14+</span>
+          <span class="font-body text-white/70 text-[10px] text-center leading-tight mt-0.5">Years<br/>Experience</span>
+        </div>
+
+        <!-- Photo frame -->
+        <div class="photo-frame relative w-full max-w-sm lg:max-w-none overflow-hidden rounded-3xl shadow-2xl shadow-black/70 border border-white/10 mx-auto">
+          <img
+            v-for="(slide, index) in heroSlides"
+            :key="slide.src"
+            :src="slide.src"
+            :alt="slide.alt"
+            :class="['hero-slide', activeSlide === index ? 'is-active' : '']"
+          />
+          <!-- Bottom gradient -->
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-dark/50 via-transparent to-transparent pointer-events-none"></div>
+          <!-- Gold ring inset -->
+          <div class="absolute inset-0 rounded-3xl ring-1 ring-inset ring-gold/25 pointer-events-none"></div>
+
+          <!-- Prev / Next arrows -->
+          <button @click="previousSlide" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-white/70 hover:text-gold hover:border-gold/50 transition-colors backdrop-blur-sm z-10" aria-label="Previous photo">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button @click="nextSlide" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-white/70 hover:text-gold hover:border-gold/50 transition-colors backdrop-blur-sm z-10" aria-label="Next photo">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+
+          <!-- Slide dots -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            <button
+              v-for="(slide, idx) in heroSlides"
+              :key="idx"
+              @click="activeSlide = idx"
+              :class="['rounded-full transition-all duration-300', activeSlide === idx ? 'w-5 h-2 bg-gold' : 'w-2 h-2 bg-white/40 hover:bg-white/70']"
+              :aria-label="`Go to slide ${idx + 1}`"
+            />
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce z-10">
       <span class="font-body text-white/40 text-xs uppercase tracking-widest">Scroll</span>
       <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -271,6 +306,16 @@ function scrollTo(id: string) {
 </script>
 
 <style scoped>
+.photo-frame {
+  aspect-ratio: 3 / 4;
+}
+
+@media (min-width: 1024px) {
+  .photo-frame {
+    aspect-ratio: 4 / 5;
+  }
+}
+
 .hero-slide {
   position: absolute;
   inset: 0;

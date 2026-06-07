@@ -8,6 +8,13 @@
         class="w-full h-full object-cover object-center opacity-10"
       />
     </div>
+    <!-- Club logo watermark, bottom-right -->
+    <img
+      :src="goldLogo"
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none select-none absolute bottom-8 right-8 w-56 h-56 lg:w-72 lg:h-72 rounded-full object-cover opacity-[0.06]"
+    />
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
@@ -36,9 +43,8 @@
               </div>
             </div>
             <p class="font-body text-white/75 leading-relaxed text-base mb-6">
-              To become the premier global <strong class="text-gold">"Kingmaker"</strong> brand —
-              synonymous with professional player development, character building, and sustained success
-              at every level of the beautiful game.
+              To become the leading youth football development club recognized for producing
+              players who progress into professional academies and national teams.
             </p>
             <ul class="space-y-3">
               <li v-for="point in visionPoints" :key="point" class="flex items-start gap-3 font-body text-white/65 text-sm">
@@ -67,9 +73,7 @@
               </div>
             </div>
             <p class="font-body text-navy/80 leading-relaxed text-base mb-6">
-              To provide a world-class, high-repetition football environment that develops the
-              <strong class="text-navy">complete athlete</strong> — technically elite, tactically
-              aware, and morally disciplined.
+              To build future football stars through elite football development, mentorship, and professional training.
             </p>
             <ul class="space-y-3">
               <li v-for="point in missionPoints" :key="point" class="flex items-start gap-3 font-body text-navy/70 text-sm">
@@ -103,18 +107,19 @@
 </template>
 
 <script setup lang="ts">
+import goldLogo from '../assets/gold-logo.jpg.png'
 const visionPoints = [
-  'A globally recognised "Kingmaker" brand',
-  'Franchise academies in multiple cities',
-  'Elite player management division',
-  'Certified ID Coach training programme',
+  'Producing players for professional academies',
+  'Developing players for national teams across 5 countries',
+  'A globally recognised Kingmaker brand',
+  'Elite player development pathways at all levels',
 ]
 
 const missionPoints = [
+  'Elite football development for all ages',
+  'Professional mentorship from experienced coaches',
   'World-class technical training with high ball repetition',
-  'Tactical awareness through cognitive loading',
   'Character development via the Character Matrix',
-  'Creating responsible young men and women',
 ]
 
 const coreValues = [

@@ -5,6 +5,13 @@
       <div class="border-2 border-white rounded-full w-96 h-96 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
       <div class="border border-white/50 w-full h-px absolute top-1/2"></div>
     </div>
+    <!-- Club logo watermark -->
+    <img
+      :src="whiteLogo"
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none select-none absolute -top-10 -right-10 w-72 h-72 rounded-full object-cover opacity-[0.06]"
+    />
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
@@ -116,6 +123,7 @@
 <script setup lang="ts">
 import founderImg from '../assets/founder.jpg.jpeg'
 import accringtonBadge from '../assets/accrington-badge.svg'
+import whiteLogo from '../assets/whitelogo.jpg.png'
 import { reactive } from 'vue'
 
 const nations = [
