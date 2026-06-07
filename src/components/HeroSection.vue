@@ -197,9 +197,9 @@
 import { onMounted, onUnmounted, ref, watch } from 'vue'
 import { galleryPhotos } from '../lib/galleryImages'
 import whiteLogo from '../assets/whitelogo.jpg.png'
-import highlights1 from '../assets/highlights1.mp4'
-import highlights2 from '../assets/highlights2.mp4'
-import highlights3 from '../assets/highlights3.mp4'
+
+// Highlight videos — place highlights1.mp4, highlights2.mp4, highlights3.mp4 in src/assets/ to enable
+const highlightVideos: string[] = []
 
 const heroTaglines = [
   'Manchester, United Kingdom',
@@ -228,7 +228,7 @@ const matchMoments = [
   { minute: '03', title: 'Character finish', copy: 'Resilience, discipline, and standards that travel beyond football.' },
 ]
 
-const highlightVideos = [highlights1, highlights2, highlights3]
+const highlightVideos_unused = null // replaced above — keep for reference
 
 const activeSlide = ref(0)
 const activeMoment = ref(0)
@@ -248,6 +248,7 @@ function replayHomeAnimation() {
 }
 
 function openHighlights() {
+  if (highlightVideos.length === 0) return // no videos uploaded yet
   // Advance to next video each time the button is clicked (cycles 0→1→2→0…)
   currentHighlightIndex.value = (currentHighlightIndex.value + 1) % highlightVideos.length
   highlightOpen.value = true
