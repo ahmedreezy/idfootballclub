@@ -5,6 +5,14 @@
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-12">
+        <!-- Club crest / trust badge -->
+        <div class="mb-5 inline-flex items-center justify-center">
+          <img
+            :src="isLightMode ? blackLogo : whiteLogo"
+            alt="ID All Stars Football Club"
+            class="h-16 w-16 rounded-full object-cover border-2 border-gold/50 shadow-lg shadow-gold/20"
+          />
+        </div>
         <p class="section-subheading mb-2">Take the First Step</p>
         <h2 class="section-heading">Player Registration</h2>
         <div class="gold-divider"></div>
@@ -295,6 +303,11 @@
 import { ref, computed } from 'vue'
 import emailjs from '@emailjs/browser'
 import { EMAILJS_CONFIG } from '../lib/emailjs.config'
+import whiteLogo from '../assets/whitelogo.jpg.png'
+import blackLogo from '../assets/black-logo.jpg.png'
+import { useKitTheme } from '../lib/useKitTheme'
+
+const { isLightMode } = useKitTheme()
 
 interface FormData {
   firstName: string

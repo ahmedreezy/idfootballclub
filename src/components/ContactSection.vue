@@ -11,6 +11,13 @@
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-16">
+        <div class="mb-4 inline-flex items-center justify-center">
+          <img
+            :src="isLightMode ? blackLogo : whiteLogo"
+            alt="ID All Stars Football Club"
+            class="h-14 w-14 rounded-full object-cover border-2 border-gold/40 shadow-md shadow-gold/20"
+          />
+        </div>
         <p class="section-subheading mb-2">Get In Touch</p>
         <h2 class="section-heading">Contact Us</h2>
         <div class="gold-divider"></div>
@@ -172,6 +179,11 @@
 import { ref } from 'vue'
 import emailjs from '@emailjs/browser'
 import { EMAILJS_CONFIG } from '../lib/emailjs.config'
+import whiteLogo from '../assets/whitelogo.jpg.png'
+import blackLogo from '../assets/black-logo.jpg.png'
+import { useKitTheme } from '../lib/useKitTheme'
+
+const { isLightMode } = useKitTheme()
 
 interface ContactForm {
   name: string

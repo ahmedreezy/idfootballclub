@@ -3,6 +3,13 @@
     <!-- Background decoration -->
     <div class="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
     <div class="absolute bottom-0 left-0 w-64 h-64 bg-gold/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+    <!-- Faint logo watermark top-right -->
+    <img
+      :src="isLightMode ? blackLogo : whiteLogo"
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none absolute -top-10 -right-10 h-72 w-72 rounded-full object-cover opacity-[0.28] select-none"
+    />
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
@@ -116,6 +123,11 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 import { galleryPhotos } from '../lib/galleryImages'
+import whiteLogo from '../assets/whitelogo.jpg.png'
+import blackLogo from '../assets/black-logo.jpg.png'
+import { useKitTheme } from '../lib/useKitTheme'
+
+const { isLightMode } = useKitTheme()
 
 const aboutLabels = [
   { label: 'High repetition', caption: 'Technical standards built through thousands of touches.' },

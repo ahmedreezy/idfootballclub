@@ -46,8 +46,9 @@ defineEmits<{
 
 const nextTheme = computed(() => props.currentTheme === 'Home' ? 'Away' : 'Home')
 
-// Black shirt = switch to dark (Home), White shirt = switch to light (Away)
-const shirtFill   = computed(() => nextTheme.value === 'Home' ? '#0d1117' : '#f5f5f5')
-const shirtStroke = computed(() => nextTheme.value === 'Home' ? '#374151' : '#d1d5db')
-const collarStroke = computed(() => nextTheme.value === 'Home' ? '#4b5563' : '#9ca3af')
+// Show the shirt of the theme you'll switch INTO:
+// Clicking shows Home (white shirt) or Away (navy shirt)
+const shirtFill    = computed(() => nextTheme.value === 'Home' ? '#f5f5f5' : '#0d2461')
+const shirtStroke  = computed(() => nextTheme.value === 'Home' ? '#d1d5db' : '#1a3a7c')
+const collarStroke = computed(() => nextTheme.value === 'Home' ? '#9ca3af' : '#2451a8')
 </script>

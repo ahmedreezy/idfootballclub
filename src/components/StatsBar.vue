@@ -1,6 +1,13 @@
 <template>
-  <section class="bg-gold py-10 stats-section">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="bg-gold py-10 stats-section relative overflow-hidden">
+    <!-- Black logo watermark centred behind the stats -->
+    <img
+      :src="logoImg"
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-48 w-48 rounded-full object-cover opacity-[0.22] select-none"
+    />
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-navy/30">
         <div
           v-for="(stat, i) in stats"
@@ -22,6 +29,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import logoImg from '../assets/black-logo.jpg.png'
 import { useIntersectionObserver } from '@vueuse/core'
 
 interface Stat {

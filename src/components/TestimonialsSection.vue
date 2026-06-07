@@ -4,7 +4,14 @@
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div v-reveal class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
-          <p class="section-subheading mb-2">Voices From The Sideline</p>
+          <div class="mb-3 flex items-center gap-3">
+            <img
+              :src="isLightMode ? blackLogo : whiteLogo"
+              alt="ID All Stars Football Club"
+              class="h-9 w-9 rounded-full object-cover border border-gold/40"
+            />
+            <p class="section-subheading mb-0">Voices From The Sideline</p>
+          </div>
           <h2 class="section-heading">Leadership, Pathways, Standards</h2>
           <div class="mt-4 h-1 w-16 rounded-full bg-gold"></div>
         </div>
@@ -88,6 +95,11 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { getGalleryPhoto } from '../lib/galleryImages'
+import whiteLogo from '../assets/whitelogo.jpg.png'
+import blackLogo from '../assets/black-logo.jpg.png'
+import { useKitTheme } from '../lib/useKitTheme'
+
+const { isLightMode } = useKitTheme()
 
 const testimonials = [
   {

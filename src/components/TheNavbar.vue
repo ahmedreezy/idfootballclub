@@ -9,11 +9,18 @@
       <div class="flex items-center justify-between h-24">
         <!-- Logo -->
         <a href="#home" @click.prevent="scrollTo('home')" class="flex items-center gap-3 group">
-          <img
-            :src="logoImg"
-            alt="ID All Stars Football Club Logo"
-            class="w-20 h-20 rounded-full object-cover group-hover:scale-110 transition-transform duration-300 border-4 border-gold/60 shadow-lg shadow-gold/20"
-          />
+          <div class="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+            <img
+              v-for="key in logoKeys"
+              :key="key"
+              :src="logoSrc[key]"
+              alt="ID All Stars Football Club Logo"
+              :class="[
+                'absolute inset-0 w-20 h-20 rounded-full object-cover border-4 border-gold/60 shadow-lg shadow-gold/20 transition-opacity duration-500',
+                activeLogo === key ? 'opacity-100' : 'opacity-0'
+              ]"
+            />
+          </div>
           <div class="block">
             <p class="font-heading font-black text-sm sm:text-lg leading-tight drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]" style="color:#ffffff">ID ALL STARS</p>
             <p class="font-body text-gold text-[10px] sm:text-xs tracking-widest uppercase drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">Football Club</p>
@@ -104,11 +111,24 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import logoImg from '../assets/newlogo.png.jpeg'
+import whiteLogo from '../assets/whitelogo.jpg.png'
+import blackLogo from '../assets/black-logo.jpg.png'
+import goldLogo from '../assets/gold-logo.jpg.png'
+import { useKitTheme } from '../lib/useKitTheme'
+
+const logoKeys = ['white', 'black', 'gold'] as const
+type LogoKey = typeof logoKeys[number]
+
+const logoSrc: Record<LogoKey, string> = { white: whiteLogo, black: blackLogo, gold: goldLogo }
+
+const { isLightMode } = useKitTheme()
 
 const scrolled = ref(false)
 const mobileOpen = ref(false)
 const activeSection = ref('home')
+
+// 'white' | 'black' | 'gold' — resolved on every scroll tick
+const activeLogo = ref<LogoKey>('white')
 
 const navLinks = [
   { id: 'home', label: 'Home' },
@@ -150,6 +170,27 @@ function onScroll() {
       }
     }
   }
+
+  // In light kit mode every section background is cream → always black logo.
+  // In dark kit mode, switch to black only over the gold StatsBar.
+  if (isLightMode.value) {
+    activeLogo.value = 'black'
+    return
+  }
+  const NAVBAR_H = 96
+  const lightSectionSelectors = ['.stats-section'] // gold backgrounds
+  let overLight = false
+  for (const sel of lightSectionSelectors) {
+    const el = document.querySelector(sel) as HTMLElement | null
+    if (el) {
+      const r = el.getBoundingClientRect()
+      if (r.top < NAVBAR_H && r.bottom > 0) {
+        overLight = true
+        break
+      }
+    }
+  }
+  activeLogo.value = overLight ? 'black' : 'white'
 }
 
 onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))

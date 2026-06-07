@@ -21,7 +21,7 @@
             <div class="w-72 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden border-4 border-gold/40 shadow-2xl shadow-black/60">
               <img
                 :src="founderImg"
-                alt="Mr. ID - ID All Stars Founder"
+                alt="ID - ID All Stars Founder"
                 class="w-full h-full object-cover object-top"
               />
             </div>
@@ -31,7 +31,7 @@
 
           <!-- Name card -->
           <div class="mt-10 bg-gold rounded-2xl p-5 w-72 md:w-80">
-            <p class="font-heading font-black text-navy text-xl">Mr. ID</p>
+            <p class="font-heading font-black text-navy text-xl">ID</p>
             <p class="font-body text-navy/70 text-sm">Founder & Head Coach</p>
             <p class="font-body text-navy/60 text-xs mt-1 tracking-wider">Manchester, United Kingdom</p>
           </div>
@@ -41,18 +41,18 @@
         <div v-reveal.right class="lg:col-span-3">
           <div class="space-y-5 font-body text-white/75 leading-relaxed">
             <p class="text-lg text-white/90">
-              Mr. ID's identity is more than a name -
+              ID's identity is more than a name -
               it's a calling. In football, he transformed that identity into a mission:
               <strong class="text-white">ID — Identification of Stars.</strong>
             </p>
             <p>
-              Over 14 years, Mr. ID has built one of the most respected player development platforms
+              Over 14 years, ID has built one of the most respected player development platforms
               in the North West of England, not by seeking fame, but by quietly crafting careers.
               His method is simple and powerful: put thousands of touches on the ball, build the
               discipline to go with the talent, and create young people of substance.
             </p>
             <p>
-              The results speak for themselves. Players from Mr. ID's platform have gone on to
+              The results speak for themselves. Players from ID's platform have gone on to
               represent <strong class="text-white">5 national teams</strong> and signed for
               some of the biggest clubs in English football.
             </p>
@@ -105,7 +105,7 @@
               substance. The game will eventually end, but the character we build together
               will last a lifetime."
             </p>
-            <p class="font-body text-gold text-sm mt-3">— Mr. ID, Founder</p>
+            <p class="font-body text-gold text-sm mt-3">— ID, Founder</p>
           </div>
         </div>
       </div>

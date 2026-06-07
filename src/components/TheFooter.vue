@@ -7,7 +7,7 @@
         <div class="lg:col-span-1">
           <div class="flex items-center gap-3 mb-4">
             <img
-              :src="logoImg"
+              :src="isLightMode ? blackLogo : whiteLogo"
               alt="ID All Stars Football Club Logo"
               class="w-14 h-14 rounded-full object-cover border-2 border-gold/40"
             />
@@ -163,9 +163,13 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import logoImg from '../assets/newlogo.png.jpeg'
+import whiteLogo from '../assets/whitelogo.jpg.png'
+import blackLogo from '../assets/black-logo.jpg.png'
+import { useKitTheme } from '../lib/useKitTheme'
 import { EMAILJS_CONFIG } from '../lib/emailjs.config'
 import { version as appVersion } from '../../package.json'
+
+const { isLightMode } = useKitTheme()
 
 const currentYear = new Date().getFullYear()
 const activeModal = ref<string | null>(null)
