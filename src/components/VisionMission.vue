@@ -3,8 +3,8 @@
     <!-- Background image with overlay -->
     <div class="absolute inset-0">
       <img
-        src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1920&q=80"
-        alt="Football stadium"
+        :src="bgPhoto"
+        alt="Football training"
         class="w-full h-full object-cover object-center opacity-10"
       />
     </div>
@@ -108,6 +108,9 @@
 
 <script setup lang="ts">
 import goldLogo from '../assets/gold-logo.jpg.png'
+import { galleryPhotos } from '../lib/galleryImages'
+
+const bgPhoto = galleryPhotos[Math.floor(galleryPhotos.length * 0.4)]?.src ?? ''
 const visionPoints = [
   'Producing players for professional academies',
   'Developing players for national teams across 5 countries',

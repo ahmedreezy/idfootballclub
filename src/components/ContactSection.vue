@@ -2,7 +2,7 @@
   <section id="contact" class="py-24 bg-navy relative overflow-hidden">
     <div class="absolute inset-0">
       <img
-        src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=1920&q=80"
+        :src="bgPhoto"
         alt=""
         class="w-full h-full object-cover opacity-5"
       />
@@ -182,6 +182,9 @@ import { EMAILJS_CONFIG } from '../lib/emailjs.config'
 import whiteLogo from '../assets/whitelogo.jpg.png'
 import blackLogo from '../assets/black-logo.jpg.png'
 import { useKitTheme } from '../lib/useKitTheme'
+import { galleryPhotos } from '../lib/galleryImages'
+
+const bgPhoto = galleryPhotos[Math.floor(galleryPhotos.length * 0.7)]?.src ?? ''
 
 const { isLightMode } = useKitTheme()
 
