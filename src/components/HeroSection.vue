@@ -13,7 +13,7 @@
     <!-- Two-column grid -->
     <div
       :key="animationKey"
-      class="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 pt-28 pb-16 lg:pt-32 lg:pb-16 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center"
+      class="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 pt-40 pb-16 lg:pt-44 lg:pb-16 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center"
     >
 
       <!-- LEFT: Copy -->
@@ -89,9 +89,13 @@
       <div class="order-1 lg:order-2 relative flex items-center justify-center">
 
         <!-- 14+ badge — floats off top-left corner of the frame -->
-        <div class="absolute -top-5 -left-5 lg:-top-7 lg:-left-7 w-20 h-20 lg:w-24 lg:h-24 rounded-full border-4 border-gold bg-navy-dark flex flex-col items-center justify-center shadow-2xl shadow-gold/30 z-20">
-          <span class="font-heading font-black text-gold text-xl lg:text-2xl leading-none">14+</span>
-          <span class="font-body text-white/70 text-[10px] text-center leading-tight mt-0.5">Years<br/>Experience</span>
+        <div class="absolute -top-5 -left-5 lg:-top-7 lg:-left-7 w-20 h-20 lg:w-24 lg:h-24 rounded-full border-4 border-gold shadow-2xl shadow-gold/30 z-20 overflow-hidden">
+          <img :src="whiteLogo" alt="ID All Stars" class="w-full h-full object-cover rounded-full" />
+          <!-- 14+ overlay -->
+          <div class="absolute inset-0 rounded-full bg-navy-dark/55 flex flex-col items-center justify-center">
+            <span class="font-heading font-black text-gold text-xl lg:text-2xl leading-none">14+</span>
+            <span class="font-body text-white/80 text-[10px] text-center leading-tight">Years</span>
+          </div>
         </div>
 
         <!-- Photo frame -->
@@ -192,6 +196,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, watch } from 'vue'
 import { galleryPhotos } from '../lib/galleryImages'
+import whiteLogo from '../assets/whitelogo.jpg.png'
 import highlights1 from '../assets/highlights1.mp4'
 import highlights2 from '../assets/highlights2.mp4'
 import highlights3 from '../assets/highlights3.mp4'

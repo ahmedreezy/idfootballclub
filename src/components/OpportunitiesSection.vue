@@ -1,6 +1,13 @@
 <template>
   <section id="opportunities" class="py-24 bg-navy-dark relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.06),transparent_60%)]"></div>
+    <!-- Logo watermark -->
+    <img
+      :src="whiteLogo"
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none select-none absolute -bottom-10 -left-10 w-72 h-72 rounded-full object-cover opacity-[0.05]"
+    />
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
@@ -102,6 +109,8 @@
 </template>
 
 <script setup lang="ts">
+import whiteLogo from '../assets/whitelogo.jpg.png'
+
 const programs = [
   {
     group: 'Mini Stars',

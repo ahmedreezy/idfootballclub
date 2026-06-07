@@ -1,5 +1,12 @@
 <template>
-  <section id="gallery" class="py-24 bg-navy relative">
+  <section id="gallery" class="py-24 bg-navy relative overflow-hidden">
+    <!-- Logo watermark -->
+    <img
+      :src="whiteLogo"
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none select-none absolute -top-10 -right-10 w-72 h-72 rounded-full object-cover opacity-[0.05]"
+    />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-12">
@@ -207,6 +214,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { galleryPhotos, type GalleryPhoto } from '../lib/galleryImages'
+import whiteLogo from '../assets/whitelogo.jpg.png'
 
 const PREVIEW_COUNT = 8
 const featuredPhotoIndexes = [0, 8, 18, 31, 45, 62, 84, 110]

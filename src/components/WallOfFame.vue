@@ -1,5 +1,12 @@
 <template>
-  <section class="py-16 bg-navy overflow-hidden">
+  <section class="py-16 bg-navy overflow-hidden relative">
+    <!-- Logo watermark -->
+    <img
+      :src="whiteLogo"
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none select-none absolute -top-10 -left-10 w-72 h-72 rounded-full object-cover opacity-[0.05]"
+    />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div v-reveal class="text-center mb-10">
         <p class="section-subheading mb-2">Our Network</p>
@@ -80,6 +87,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import accringtonBadge from '../assets/accrington-badge.svg'
+import whiteLogo from '../assets/whitelogo.jpg.png'
 
 const nations = [
   { name: 'England', code: 'gb-eng' },

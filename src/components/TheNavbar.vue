@@ -6,24 +6,24 @@
     ]"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-24">
+      <div class="flex items-center justify-between h-36">
         <!-- Logo -->
         <a href="#home" @click.prevent="scrollTo('home')" class="flex items-center gap-3 group">
-          <div class="relative w-20 h-20 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+          <div class="relative w-32 h-32 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
             <img
               v-for="key in logoKeys"
               :key="key"
               :src="logoSrc[key]"
               alt="ID All Stars Football Club Logo"
               :class="[
-                'absolute inset-0 w-20 h-20 rounded-full object-cover border-4 border-gold/60 shadow-lg shadow-gold/20 transition-opacity duration-500',
+                'absolute inset-0 w-32 h-32 rounded-full object-cover border-4 border-gold/60 shadow-lg shadow-gold/20 transition-opacity duration-500',
                 activeLogo === key ? 'opacity-100' : 'opacity-0'
               ]"
             />
           </div>
           <div class="block">
-            <p class="font-heading font-black text-sm sm:text-lg leading-tight drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]" style="color:#ffffff">ID ALL STARS</p>
-            <p class="font-body text-gold text-[10px] sm:text-xs tracking-widest uppercase drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">Football Club</p>
+            <p class="font-heading font-black text-2xl sm:text-4xl leading-tight drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]" style="color:#ffffff">ID ALL STARS</p>
+            <p class="font-body text-gold text-sm sm:text-base tracking-widest uppercase drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">Football Club</p>
           </div>
         </a>
 

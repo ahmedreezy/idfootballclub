@@ -1,6 +1,13 @@
 <template>
   <section class="relative overflow-hidden border-y border-gold/20 bg-navy py-12">
     <div class="absolute inset-0 bg-[linear-gradient(110deg,rgba(212,175,55,0.16),transparent_34%,rgba(255,255,255,0.06)_56%,transparent_76%)]"></div>
+    <!-- Logo watermark -->
+    <img
+      :src="whiteLogo"
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none select-none absolute -top-8 -right-8 w-64 h-64 rounded-full object-cover opacity-[0.06]"
+    />
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 lg:grid-cols-[1.05fr_1.4fr_auto] lg:items-center">
         <div v-reveal.left>
@@ -39,6 +46,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
+import whiteLogo from '../assets/whitelogo.jpg.png'
 
 const trialDate = new Date('2026-06-14T10:00:00+01:00')
 const now = ref(new Date())

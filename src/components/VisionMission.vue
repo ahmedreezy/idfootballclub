@@ -28,7 +28,7 @@
       <div class="grid md:grid-cols-2 gap-8 mb-16">
         <!-- Vision -->
         <div class="relative bg-navy border-2 border-gold/30 rounded-3xl p-8 md:p-10 overflow-hidden group hover:border-gold/60 transition-colors duration-300">
-          <div class="absolute top-0 right-0 w-40 h-40 bg-gold/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-gold/10 transition-colors"></div>
+          <img :src="goldLogo" alt="" aria-hidden="true" class="pointer-events-none select-none absolute -top-10 -right-10 w-32 h-32 rounded-full object-cover opacity-[0.08]" />
           <div class="relative">
             <div class="flex items-center gap-3 mb-6">
               <div class="w-12 h-12 rounded-xl bg-gold/20 border border-gold/40 flex items-center justify-center">
@@ -59,7 +59,7 @@
 
         <!-- Mission -->
         <div class="relative bg-gold rounded-3xl p-8 md:p-10 overflow-hidden group">
-          <div class="absolute top-0 right-0 w-40 h-40 bg-navy/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <img :src="goldLogo" alt="" aria-hidden="true" class="pointer-events-none select-none absolute -top-10 -right-10 w-32 h-32 rounded-full object-cover opacity-[0.12]" />
           <div class="relative">
             <div class="flex items-center gap-3 mb-6">
               <div class="w-12 h-12 rounded-xl bg-navy/20 border border-navy/30 flex items-center justify-center">
