@@ -15,5 +15,5 @@ export const EMAILJS_CONFIG = {
   SERVICE_ID: 'YOUR_SERVICE_ID',                  // e.g. 'service_xxxxxxx'
   REGISTRATION_TEMPLATE_ID: 'YOUR_REG_TEMPLATE', // e.g. 'template_xxxxxxx'
   CONTACT_TEMPLATE_ID: 'YOUR_CONTACT_TEMPLATE',  // e.g. 'template_xxxxxxx'
-  TO_EMAIL: 'registration@idallstarsfc.com',
+  TO_EMAIL: 'admin@idallstarsfc.com',
 }

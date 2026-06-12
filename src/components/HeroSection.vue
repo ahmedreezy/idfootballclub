@@ -123,11 +123,11 @@
           <!-- Slide dots -->
           <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
             <button
-              v-for="(slide, idx) in heroSlides"
+              v-for="idx in heroSlides.length"
               :key="idx"
-              @click="activeSlide = idx"
-              :class="['rounded-full transition-all duration-300', activeSlide === idx ? 'w-5 h-2 bg-gold' : 'w-2 h-2 bg-white/40 hover:bg-white/70']"
-              :aria-label="`Go to slide ${idx + 1}`"
+              @click="activeSlide = idx - 1"
+              :class="['rounded-full transition-all duration-300', activeSlide === idx - 1 ? 'w-5 h-2 bg-gold' : 'w-2 h-2 bg-white/40 hover:bg-white/70']"
+              :aria-label="`Go to slide ${idx}`"
             />
           </div>
         </div>
@@ -213,7 +213,6 @@ const heroSlides = galleryPhotos.map((photo, index) => ({
   alt: photo.alt,
   tagline: heroTaglines[index % heroTaglines.length],
 }))
-const heroProgressDots = 8
 
 const heroStats = [
   { value: '14+', label: 'Years' },
@@ -227,8 +226,6 @@ const matchMoments = [
   { minute: '02', title: 'Game intelligence', copy: 'Scanning, timing, and confident decisions under pressure.' },
   { minute: '03', title: 'Character finish', copy: 'Resilience, discipline, and standards that travel beyond football.' },
 ]
-
-const highlightVideos_unused = null // replaced above — keep for reference
 
 const activeSlide = ref(0)
 const activeMoment = ref(0)
