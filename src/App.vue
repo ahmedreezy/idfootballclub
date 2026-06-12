@@ -56,9 +56,15 @@ watch(kitTheme, (theme) => {
       <ContactSection />
     </main>
     <TheFooter />
-    <!-- KitThemeSwitcher deactivated — light mode disabled; component preserved for future use
-    <KitThemeSwitcher :current-theme="kitThemeLabel" @toggle="toggleKitTheme" />
-    -->
+    <!-- KitThemeSwitcher deactivated — light mode disabled; component preserved for future use -->
+    <KitThemeSwitcher v-if="false" :current-theme="kitThemeLabel" @toggle="toggleKitTheme" />
+    <a
+      href="https://fabiandigitalhub.com"
+      class="fixed bottom-4 right-4 z-50 rounded-full border border-gold-light/70 bg-gold px-4 py-2 font-heading text-xs font-black uppercase tracking-wide text-navy shadow-xl shadow-black/35 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-light hover:shadow-gold/25 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy-dark md:bottom-6 md:right-6"
+      aria-label="Open ID portal"
+    >
+      ID portal
+    </a>
     <span class="fixed bottom-3 left-3 z-40 font-mono text-[10px] text-white/30 select-none pointer-events-none" aria-hidden="true">v{{ appVersion }}</span>
   </div>
 </template>
