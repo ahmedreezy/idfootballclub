@@ -104,7 +104,7 @@ const { isLightMode } = useKitTheme()
 const testimonials = [
   {
     quote: 'ID Football Club was built to give players more than sessions. We create standards, belief, and a pathway they can carry into every match and every room they enter.',
-    name: 'Mr. ID',
+    name: 'ID',
     role: 'Founder',
     result: 'Founder vision',
     context: 'The method, values, and long-term player pathway behind the club.',
