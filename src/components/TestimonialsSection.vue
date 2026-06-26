@@ -8,7 +8,7 @@
             <img
               :src="isLightMode ? blackLogo : whiteLogo"
               alt="ID All Stars Football Club"
-              class="h-9 w-9 rounded-full object-cover border border-gold/40"
+              class="h-9 w-9 rounded-full border border-gold/40 bg-black object-contain"
             />
             <p class="section-subheading mb-0">Voices From The Sideline</p>
           </div>

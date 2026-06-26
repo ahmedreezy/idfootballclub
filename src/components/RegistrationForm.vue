@@ -10,7 +10,7 @@
           <img
             :src="isLightMode ? blackLogo : whiteLogo"
             alt="ID All Stars Football Club"
-            class="h-16 w-16 rounded-full object-cover border-2 border-gold/50 shadow-lg shadow-gold/20"
+            class="h-16 w-16 rounded-full border-2 border-gold/50 bg-black object-contain shadow-lg shadow-gold/20"
           />
         </div>
         <p class="section-subheading mb-2">Take the First Step</p>

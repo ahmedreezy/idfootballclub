@@ -89,8 +89,9 @@
       <div class="order-1 lg:order-2 relative flex items-center justify-center">
 
         <!-- 14+ badge — floats off top-left corner of the frame -->
-        <div class="absolute -top-5 -left-5 lg:-top-7 lg:-left-7 w-20 h-20 lg:w-24 lg:h-24 rounded-full border-4 border-gold shadow-2xl shadow-gold/30 z-20 overflow-hidden">
-          <img :src="whiteLogo" alt="ID All Stars" class="w-full h-full object-cover rounded-full" />
+        <div class="absolute -top-5 -left-5 lg:-top-7 lg:-left-7 w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-black shadow-2xl shadow-gold/30 z-20 overflow-hidden">
+          <img :src="whiteLogo" alt="ID All Stars" class="absolute inset-0 h-full w-full rounded-full object-contain" />
+          <div class="pointer-events-none absolute inset-0 rounded-full border-4 border-gold"></div>
           <!-- 14+ overlay -->
           <div class="absolute inset-0 rounded-full bg-navy-dark/55 flex flex-col items-center justify-center">
             <span class="font-heading font-black text-gold text-xl lg:text-2xl leading-none">14+</span>
